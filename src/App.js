@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Main from './component/mainComponent';
 import './App.css';
-
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   
@@ -9,7 +9,9 @@ class App extends Component {
     return (
       
       <div>
+        <BrowserRouter>
          <Main />
+         </BrowserRouter>
       </div>
     );
   }
