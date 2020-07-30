@@ -159,12 +159,12 @@ class Contact extends Component {
                             <Label check>
                             
                                 <Control.checkbox model=".agree" name="agree"
-                                       className="form-check"  />{' '}
+                                       className="form-check"  />
                                         <strong>May we contant you?</strong>
                             </Label>
                             </div>
                             </Col>
-                            <Col md={{size: 3, offset: 1}}>
+                            <Col md={{size: 3, offset: 2}}>
                                     <Control.select model=".contactType" name="contactType"
                                             className="form-control">
                                         <option>Tel.</option>
