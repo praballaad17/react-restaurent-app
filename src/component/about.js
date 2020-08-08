@@ -3,25 +3,29 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-
+import { Fade, Stagger } from "react-animation-components";
 
 function RenderLeader( {leader} ) {
     return(
-    <Media tag="li">
-        <Media left middle>
-            <Media object src={baseUrl + leader.image} alt={leader.name} />
-        </Media>
-        <Media body className="ml-5">
-            <Media heading>{leader.name}</Media>
-            <h6>{leader.designation}</h6>
-            <p>{leader.description}</p>
-        </Media>
-    </Media> 
+        <Stagger in>
+            <Fade in >
+                <Media tag="li">
+                    <Media left middle>
+                        <Media object src={baseUrl + leader.image} alt={leader.name} />
+                    </Media>
+                    <Media body className="ml-5">
+                        <Media heading>{leader.name}</Media>
+                        <h6>{leader.designation}</h6>
+                        <p>{leader.description}</p>
+                    </Media>
+                </Media> 
+            </Fade>
+        </Stagger>
     )
 }
 
 const About = (props) => {
-
+    
     const leaders = props.leaders.leaders.map((leader) => {
         return (
             <div>
@@ -29,7 +33,7 @@ const About = (props) => {
             </div>
         );
     });
-
+    
 
     if (props.leaders.isLoading) {
         return(

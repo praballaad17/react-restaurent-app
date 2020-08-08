@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './home';
 import Menu from './menuComponent';
-import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/actionCreator';
+import { postComment,postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/actionCreator';
 import DishDetail from './DishdetailComponent';
 import Contact from './contact';
 import Header from './header';
@@ -23,6 +23,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   
   postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+  postFeedback: (firstname, lastname, telnum, email, agree, contactType, message) => dispatch(postFeedback(firstname, lastname, telnum, email, agree, contactType, message)),
   fetchDishes: () => { dispatch(fetchDishes())},
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
   fetchComments: () => dispatch(fetchComments()),
@@ -78,12 +79,12 @@ class Main extends Component {
       <div>
         <Header /> 
         <TransitionGroup>
-            <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+            <CSSTransition key={this.props.location.key} classNames="page" timeout={400}>
               <Switch>
                 <Route path="/home" component={HomePage} />
                 <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes}/>} />
                 <Route path='/menu/:dishId' component={DishwithId} />
-                <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                <Route exact path="/contactus" component={ () => <Contact postFeedback={this.props.postFeedback}  resetFeedbackForm={this.props.resetFeedbackForm} />} />
                 <Route path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
                 <Redirect to="/home" />
               </Switch>
