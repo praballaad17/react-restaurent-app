@@ -1,0 +1,2 @@
+**to start the json server code in cmd prompt with the directory of the server folder.
+	$json-server --watch db.json -p 3001 -d 2000

@@ -1,4 +1,3 @@
-import { DISHES } from '../shared/dishes';
 import * as ActionTypes from './actiontype';
 
 export const Dishes = (state = {

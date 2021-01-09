@@ -1,5 +1,4 @@
 import * as ActionTypes from './actiontype';
-import { DISHES } from '../shared/dishes';
 import { baseUrl } from '../shared/baseUrl';
 
 export const fetchDishes = () => (dispatch) => {
